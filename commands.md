@@ -1,4 +1,6 @@
-# Setup Commands
+# Terminal Record: Copper Kettle Coffee Roasters 
+
+## 1. Building the project
 
 ```bash
 cd ~
@@ -11,15 +13,32 @@ source .venv/bin/activate
 pip install pytest ruff
 pip freeze > requirements.txt
 touch business_rules.py main.py commands.md README.md .gitignore
-mkdir tests
+mdkir tests
 touch tests/__init__.py tests/test_business_rules.py
 echo ".venv/" > .gitignore
 echo "__pycache__/" >> .gitignore
 git status
 git add .
-git commit -m "Set up midterm project structure and virtual environment"
+git commit -m "Set up midterm project structure and virtual enviroment"
 git remote add origin https://github.com/niaxenikis/ism3232-midterm.git
 brew install gh
 gh auth login
 git push -u origin main
 ```
+
+## 2. The virtual environment
+```bash
+which python3
+```
+
+```text
+/Users/antoniaxenikis/ism3232-midterm/.venv/bin/python3
+```
+
+## 3. The project structure
+
+## 4. Every function and test
+
+## 5. Which files print
+
+## 6. The commit history
