@@ -52,8 +52,7 @@ tree -L 2
 └── tests
     ├── __init__.py
     ├── __pycache__
-    ├── test_business_rules.py
-    └── tests_business_rules.py
+    └── test_business_rules.py
 ```
 
 ## 4. Every function and test
