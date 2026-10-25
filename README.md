@@ -29,7 +29,8 @@ python main.py
 
 ## How to Test
 ```bash
-ruff check
+ruff format .
+ruff check .
 pytest -v
 ```
 
