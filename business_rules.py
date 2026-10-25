@@ -11,23 +11,28 @@ PREPAYMENT_THRESHOLD = 1500.00
 PALLET_BAG_LIMIT = 60
 PALLET_TOTAL_LIMIT = 700.00
 
+
 def calculate_bean_cost(bag_price: float, bags: int) -> float:
     """Return the bean cost before any discount."""
     return bag_price * bags
+
 
 def get_bulk_discount(bags: int, partner: bool = False) -> float:
     """Return the discount rate as a decimal based on bags and partner status."""
     if bags < MIN_DISCOUNT_BAGS:
         return 0.0
-    if bags < LARGE_ORDER_BAGS :
+    if bags < LARGE_ORDER_BAGS:
         rate = STANDARD_DISCOUNT
-    else: 
+    else:
         rate = LARGE_DISCOUNT
     if partner:
         rate = rate + PARTNER_BONUS
     return round(rate, 2)
 
-def calculate_shipment_total(bag_price: float, bags: int, partner: bool = False) -> float:
+
+def calculate_shipment_total(
+    bag_price: float, bags: int, partner: bool = False
+) -> float:
     """Return the shipment total: discounted cost plus shipping when it applies"""
     cost = calculate_bean_cost(bag_price, bags)
     rate = get_bulk_discount(bags, partner)
@@ -36,13 +41,16 @@ def calculate_shipment_total(bag_price: float, bags: int, partner: bool = False)
         discounted_cost = discounted_cost + SHIPPING_FEE
     return round(discounted_cost, 2)
 
+
 def requires_prepayment(total: float) -> bool:
     """Return True when the shipment total requires prepayment."""
     return total >= PREPAYMENT_THRESHOLD
 
+
 def needs_pallet(bags: int, total: float) -> bool:
     """Return True when the shipment needs a freight pallet."""
     return bags > PALLET_BAG_LIMIT and total > PALLET_TOTAL_LIMIT
+
 
 def total_shipped(shipments: list) -> float:
     """Return the sum of the shipment totals for every shipment in the list."""
@@ -53,6 +61,7 @@ def total_shipped(shipments: list) -> float:
         )
         running_total = running_total + shipment_total
     return round(running_total, 2)
+
 
 def largest_shipment(shipments: list) -> str:
     """Return the buyer of the shipment with the largest total."""
@@ -67,10 +76,13 @@ def largest_shipment(shipments: list) -> str:
             largest_buyer = shipment["buyer"]
     return largest_buyer
 
-def format_shipment_line(buyer: str, total: float, prepayment: bool, pallet: bool) -> str:
+
+def format_shipment_line(
+    buyer: str, total: float, prepayment: bool, pallet: bool
+) -> str:
     """Return one formatted line of the shipment report."""
     prepayment_text = "yes" if prepayment else "no"
     pallet_text = "yes" if pallet else "no"
-    return f"{buyer}: ${total:.2f} | prepayment: {prepayment_text} | pallet: {pallet_text}"
-
-
+    return (
+        f"{buyer}: ${total:.2f} | prepayment: {prepayment_text} | pallet: {pallet_text}"
+    )

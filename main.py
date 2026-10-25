@@ -19,6 +19,8 @@ shipments = [
     {"buyer": "Birch Diner", "bag_price": 11.00, "bags": 61, "partner": False},
     {"buyer": "Cove Market", "bag_price": 13.00, "bags": 150, "partner": True},
 ]
+
+
 def main() -> None:
     """Print the shipment report."""
     print("Cooper Kettle Coffee Roasters - Shipment Report")
@@ -50,6 +52,7 @@ def main() -> None:
     print(f"Largest shipment total: {largest_shipment(shipments)}")
     print(f"Prepayments required: {prepayment_count}")
     print(f"Pallets needed: {pallet_count}")
+
 
 if __name__ == "__main__":
     main()

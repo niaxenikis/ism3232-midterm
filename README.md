@@ -39,7 +39,7 @@ pytest -v
 -'commands.md' - the terminal record of how the project was built and checked
 -'README.md' - this file, exmplaining what the project does and how to use it 
 -'requirements.txt' - tells Git to leave the .venv and the __pycache__ folder out of the repository
--'tests/__init__.py' - an empty file that makrs the test folder as a python package
+-'tests/__init__.py' - an empty file that marks the test folder as a python package
 -'tests/test_business_rules.py' - the pytest tests for every business rule function
 ## AI Use Statement
 I did not use AI in the completion of this assignment.
