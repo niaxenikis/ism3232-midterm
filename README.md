@@ -1,7 +1,7 @@
 # ISM3232 Midterm: Copper Kettle Coffee Roasters
 
 - **Antonia Xenikis** 
-- **Version:** [Your version]
+- **ZETA:** 
 - **10/25/2026** 
 
 ## What This Program Does
