@@ -1,4 +1,4 @@
-"""Business rules for Cooper Kettle Coffee Roasters wholesale shipments"""
+"""Business rules for Copper Kettle Coffee Roasters wholesale shipments"""
 
 MIN_DISCOUNT_BAGS = 20
 LARGE_ORDER_BAGS = 80

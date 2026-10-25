@@ -1,4 +1,4 @@
-"""Print the Cooper Kettle Coffee Roasters shipment report."""
+"""Print the Copper Kettle Coffee Roasters shipment report."""
 
 from business_rules import (
     calculate_shipment_total,
@@ -23,7 +23,7 @@ shipments = [
 
 def main() -> None:
     """Print the shipment report."""
-    print("Cooper Kettle Coffee Roasters - Shipment Report")
+    print("Copper Kettle Coffee Roasters - Shipment Report")
 
     shipment_count = 0
     prepayment_count = 0

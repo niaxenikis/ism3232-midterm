@@ -61,44 +61,80 @@ rg 'def '
 ```
 
 ```text
-main.py
-22:def main() -> None:
-
 business_rules.py
-14:def calculate_bean_cost(bag_price: float, bags: int) -> float:
-18:def get_bulk_discount(bags: int, partner: bool = False) -> float:
-30:def calculate_shipment_total(bag_price: float, bags: int, partner: bool = False) -> float:
-39:def requires_prepayment(total: float) -> bool:
-43:def needs_pallet(bags: int, total: float) -> bool:
-47:def total_shipped(shipments: list) -> float:
-57:def largest_shipment(shipments: list) -> str:
-70:def format_shipment_line(buyer: str, total: float, prepayment: bool, pallet: bool) -> str:
+15:def calculate_bean_cost(bag_price: float, bags: int) -> float:
+20:def get_bulk_discount(bags: int, partner: bool = False) -> float:
+33:def calculate_shipment_total(
+45:def requires_prepayment(total: float) -> bool:
+50:def needs_pallet(bags: int, total: float) -> bool:
+55:def total_shipped(shipments: list) -> float:
+66:def largest_shipment(shipments: list) -> str:
+80:def format_shipment_line(
+
+main.py
+24:def main() -> None:
+
+commands.md
+60:rg 'def '
+65:22:def main() -> None:
+68:14:def calculate_bean_cost(bag_price: float, bags: int) -> float:
+69:18:def get_bulk_discount(bags: int, partner: bool = False) -> float:
+70:30:def calculate_shipment_total(bag_price: float, bags: int, partner: bool = False) -> float:
+71:39:def requires_prepayment(total: float) -> bool:
+72:43:def needs_pallet(bags: int, total: float) -> bool:
+73:47:def total_shipped(shipments: list) -> float:
+74:57:def largest_shipment(shipments: list) -> str:
+75:70:def format_shipment_line(buyer: str, total: float, prepayment: bool, pallet: bool) -> str:
+78:15:def test_bean_cost_multiples_price_by_bags() -> None:
+79:19:def test_no_discount_at_19_bags() -> None:
+80:23:def test_standard_discount_at_20_bags() -> None:
+81:27:def test_standard_discount_at_79_bags() -> None:
+82:31:def test_large_discount_at_80_bags() -> None:
+83:35:def test_partner_gets_no_bonus_under_20_bags() -> None:
+84:39:def test_partner_bonus_at_20_bags() -> None:
+85:43:def test_partner_bonus_at_80_bags() -> None:
+86:47:def test_partner_changes_shipment_total() -> None:
+87:52:def test_no_shipping_fee_at_250() -> None:
+88:56:def test_shipping_fee_added_below_250() -> None:
+89:60:def test_prepayment_required_at_1500() -> None:
+90:64:def test_no_prepayment_at_1499_99() -> None:
+91:68:def test_pallet_no_pallet_at_60_bags() -> None:
+92:72:def test_pallet_needed_at_61_bags() -> None:
+93:76:def test_no_pallet_at_700_total() -> None:
+94:80:def test_pallet_needed_above_700_total() -> None:
+95:84:def test_total_shipped_adds_shipment_totals() -> None:
+96:92:def test_total_shipped_empty_list() -> None:
+97:96:def test_largest_shipment_returns_biggest_buyer() -> None:
+98:104:def test_largest_shipment_tie_returns_first() -> None:
+99:112:def test_largest_shipment_empty_list() -> None:
+100:116:def test_format_line_with_no_and_no() -> None:
+101:121:def test_format_line_with_yes_and_yes() -> None:
 
 tests/test_business_rules.py
 15:def test_bean_cost_multiples_price_by_bags() -> None:
-19:def test_no_discount_at_19_bags() -> None:
-23:def test_standard_discount_at_20_bags() -> None:
-27:def test_standard_discount_at_79_bags() -> None:
-31:def test_large_discount_at_80_bags() -> None:
-35:def test_partner_gets_no_bonus_under_20_bags() -> None:
-39:def test_partner_bonus_at_20_bags() -> None:
-43:def test_partner_bonus_at_80_bags() -> None:
-47:def test_partner_changes_shipment_total() -> None:
-52:def test_no_shipping_fee_at_250() -> None:
-56:def test_shipping_fee_added_below_250() -> None:
-60:def test_prepayment_required_at_1500() -> None:
-64:def test_no_prepayment_at_1499_99() -> None:
-68:def test_pallet_no_pallet_at_60_bags() -> None:
-72:def test_pallet_needed_at_61_bags() -> None:
-76:def test_no_pallet_at_700_total() -> None:
-80:def test_pallet_needed_above_700_total() -> None:
-84:def test_total_shipped_adds_shipment_totals() -> None:
-92:def test_total_shipped_empty_list() -> None:
-96:def test_largest_shipment_returns_biggest_buyer() -> None:
-104:def test_largest_shipment_tie_returns_first() -> None:
-112:def test_largest_shipment_empty_list() -> None:
-116:def test_format_line_with_no_and_no() -> None:
-121:def test_format_line_with_yes_and_yes() -> None:
+20:def test_no_discount_at_19_bags() -> None:
+25:def test_standard_discount_at_20_bags() -> None:
+30:def test_standard_discount_at_79_bags() -> None:
+35:def test_large_discount_at_80_bags() -> None:
+40:def test_partner_gets_no_bonus_under_20_bags() -> None:
+45:def test_partner_bonus_at_20_bags() -> None:
+50:def test_partner_bonus_at_80_bags() -> None:
+55:def test_partner_changes_shipment_total() -> None:
+61:def test_no_shipping_fee_at_250() -> None:
+66:def test_shipping_fee_added_below_250() -> None:
+71:def test_prepayment_required_at_1500() -> None:
+76:def test_no_prepayment_at_1499_99() -> None:
+81:def test_pallet_no_pallet_at_60_bags() -> None:
+86:def test_pallet_needed_at_61_bags() -> None:
+91:def test_no_pallet_at_700_total() -> None:
+96:def test_pallet_needed_above_700_total() -> None:
+101:def test_total_shipped_adds_shipment_totals() -> None:
+110:def test_total_shipped_empty_list() -> None:
+115:def test_largest_shipment_returns_biggest_buyer() -> None:
+124:def test_largest_shipment_tie_returns_first() -> None:
+133:def test_largest_shipment_empty_list() -> None:
+138:def test_format_line_with_no_and_no() -> None:
+144:def test_format_line_with_yes_and_yes() -> None:
 ```
 
 ## 5. Which files print
