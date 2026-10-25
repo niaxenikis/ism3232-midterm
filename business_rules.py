@@ -11,7 +11,7 @@ PREPAYMENT_THRESHOLD = 1500.00
 PALLET_BAG_LIMIT = 60
 PALLET_TOTAL_LIMIT = 700.00
 
-def calculate_beans_cost(bag_price: float, bags: int) -> float:
+def calculate_bean_cost(bag_price: float, bags: int) -> float:
     """Return the bean cost before any discount."""
     return bag_price * bags
 
@@ -29,7 +29,7 @@ def get_bulk_discount(bags: int, partner: bool = False) -> float:
 
 def calculate_shipment_total(bag_price: float, bags: int, partner: bool = False) -> float:
     """Return the shipment total: discounted cost plus shipping when it applies"""
-    cost = calculate_beans_cost(bag_price, bags)
+    cost = calculate_bean_cost(bag_price, bags)
     rate = get_bulk_discount(bags, partner)
     discounted_cost = cost * (1 - rate)
     if discounted_cost < FREE_SHIPPING_THRESHOLD:
